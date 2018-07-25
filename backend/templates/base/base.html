@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <title>92Hoy</title>
     <meta charset="utf-8" />
     <meta name="description" content="Responsive, Bootstrap, BS4" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
@@ -13,51 +14,68 @@
     <script src="/static/common/libs/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.css">
-
-
-    <link rel="stylesheet" href="/static/common/libs/font-awesome/css/font-awesome.min.css" type="text/css" />
-    <link rel="stylesheet" href="/static/common/libs/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="/static/common/css/app.css" type="text/css" />
-    <link rel="stylesheet" href="/static/common/css/style.css" type="text/css" />
-    <link type="text/css" href="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.11/css/dataTables.checkboxes.css" rel="stylesheet" />
-    <script type="text/javascript" src="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.11/js/dataTables.checkboxes.min.js"></script>
+    <link rel="stylesheet" href="/static/vendor/bootstrap/bootstrap.css">
+    <link rel="icon" type="image/png" href="/static/common/img/favicons.png"/>
+    <%block name="css">
+    </%block>
 </head>
 
 <body>
 
+<style>
+.nav-bar{
+    width:100%;
+    height: 80px;
+    min-width: 200px;
+    background-color: slategrey;
+    border: solid 1px slategrey;
+}
+.nav-text{
+   font-size: 35px;
+
+
+}
+</style>
+
+<div class="nav-bar">
+  <a class="nav-text" href="#home">Home</a>
+  <a class="nav-text" href="#news">News</a>
+  <a class="nav-text" href="#contact">Contact</a>
+  <a class="nav-text" href="#about">About</a>
+</div>
+
 <%block name="containor">
 </%block>
 
-    <script src="/static/common/vendor/sweetalert2.js"></script>
-    <script src="/static/common/vendor/promise.js"></script>
+<script src="/static/common/vendor/sweetalert2.js"></script>
+<script src="/static/common/vendor/promise.js"></script>
 
-    <script src="/static/common/libs/popper.js/dist/umd/popper.min.js"></script>
-    <script src="/static/common/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="/static/common/libs/pace-progress/pace.min.js"></script>
-    <script src="/static/common/libs/pjax/pjax.js"></script>
-    <script src="/static/common/js/lazyload.config.js"></script>
-    <script src="/static/common/js/lazyload.js"></script>
-    <script src="/static/common/js/plugin.js"></script>
-    <script src="/static/common/js/nav.js"></script>
-    <script src="/static/common/js/scrollto.js"></script>
-    <script src="/static/common/js/toggleclass.js"></script>
-    <script src="/static/common/js/theme.js"></script>
-    <script src="/static/common/js/ajax.js"></script>
-    <script src="/static/common/js/app.js"></script>
+<script src="/static/common/libs/popper.js/dist/umd/popper.min.js"></script>
+<script src="/static/common/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/static/common/libs/pace-progress/pace.min.js"></script>
+<script src="/static/common/libs/pjax/pjax.js"></script>
+<script src="/static/common/js/lazyload.config.js"></script>
+<script src="/static/common/js/lazyload.js"></script>
+<script src="/static/common/js/plugin.js"></script>
+<script src="/static/common/js/scrollto.js"></script>
+<script src="/static/common/js/toggleclass.js"></script>
+<script src="/static/common/js/theme.js"></script>
+<script src="/static/common/js/ajax.js"></script>
+<script src="/static/common/js/app.js"></script>
 
-    <script src="/static/common/vendor/chart.js"></script>
+<script src="/static/common/vendor/chart.js"></script>
 
-    <script src="/static/common/libs/jsrender/jsrender.js"></script>
-    <script src="/static/common/libs/jsrender/jquery.observable.js"></script>
-    <script src="/static/common/libs/jsrender/jquery.views.js"></script>
-    <script>
-         $( document ).ready(function() {
-            console.log("Ready-");
-        });
-    </script>
-    <%block name="scriptDown">
+<script src="/static/common/libs/jsrender/jsrender.js"></script>
+<script src="/static/common/libs/jsrender/jquery.observable.js"></script>
+<script src="/static/common/libs/jsrender/jquery.views.js"></script>
+<script>
+     $( document ).ready(function() {
+        console.log("Ready-");
+    });
+</script>
+<%block name="scriptDown">
 
-    </%block>
+</%block>
 
 </body>
 </html>
