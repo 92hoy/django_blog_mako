@@ -1,3 +1,4 @@
+
 .main_produce{
     background-color: #0c5460;
     height: 300px;
@@ -26,10 +27,7 @@
     font-size: 70px;
     font-family: 'Montez', cursive;
 }
-body{
 
-    background: linear-gradient( 70deg, #ffffff, #CEECF5 );
-}
 
 .index-flex-container1{
     display: flex;
