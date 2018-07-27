@@ -1,20 +1,59 @@
 <%inherit file="../base/base.html"/>
 
 <%block name="css">
-    <link rel="stylesheet" type="text/css" href="/static/main/index.css">
+<link rel="stylesheet" type="text/css" href="/static/main/index.css">
 </%block>
 
 <%block name="containor">
+<div id="main_name">Django & Python
+    <br> &nbsp;  &nbsp; With
+    <br> &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; Johoyoung
+</div>
+<div id="main_name_toggle">PortFolio</div>
 
 
+<div class="index-flex-container1">
+    <div class="index-flexbox1">
+        <a href="#"><img src="/static/common/img/django.png"></a>
+    </div>
+    <div class="index-flexbox2">
+        <a href="#"><img src="/static/common/img/mysql.jpg"></a>
+    </div>
+    <div class="index-flexbox3">
+        <a href="#"><img src="/static/common/img/github.png"></a>
+    </div>
+</div>
+<div class="index-flex-container2">
+    <div class="index-flexbox4">
+        <a href="#"><img src="/static/common/img/jquery.jpg"></a>
+    </div>
+    <div class="index-flexbox5">
+        <a href="#"><img src="/static/common/img/vue.png"></a>
+    </div>
+    <div class="index-flexbox6">
+        <a href="#"><img src="/static/common/img/python.jpg"></a>
+    </div>
+</div>
 </%block>
 
 
 
 <%block name="scriptDown">
 <script>
-$(document).ready(function() {
-  console.log("ready");
-})
+    $(document).ready(function() {
+        console.log("ready");
+        $('#main_name').show()
+        $('#main_name_toggle').hide()
+        $('#main_name').click(function(){
+            $('#main_name').hide()
+            $('#main_name_toggle').show()
+        })
+        $('#main_name_toggle').click(function(){
+            $('#main_name').show()
+            $('#main_name_toggle').hide()
+        })
+
+
+    })
 </script>
- </%block>
+</%block>

@@ -8,11 +8,17 @@
     <link rel="stylesheet" href="/static/vendor/bootstrap/bootstrap.css">
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Gaegu|Nanum+Gothic|Nanum+Gothic+Coding|Source+Sans+Pro|Sunflower:300" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-
+    <link href="https://fonts.googleapis.com/css?family=Gamja+Flower|Montez|Ruthie|Shadows+Into+Light+Two" rel="stylesheet">
+    <!-- font-family: 'Ruthie', cursive;  메인 환영글씨 심한 필기체-->
+    <!-- font-family: 'Montez', cursive; 메뉴 글씨 보통 필기체-->
+    <!-- font-family: 'Gamja Flower', cursive; 귀여운 한글-->
+    <!-- font-family: 'Shadows Into Light Two', cursive; 메뉴 글씨-->
 </head>
+
 <%block name="css">
 </%block>
 <style>
+
     .a-menu:link {color: #0b2e13; text-decoration: none;}
     .a-menu:visited {color: #0b2e13; text-decoration: none;}
     .a-menu:hover{color: #0b2e13;}
@@ -59,6 +65,7 @@
         padding-left: 60px;
     }
     .menu-container-item{
+        font-family: 'Shadows Into Light Two', cursive;
         flex: 1;
         font-size: 20px;
         text-align: center;
@@ -70,11 +77,12 @@
         display: flex;
     }
     .login-container-item{
+        font-family: 'Shadows Into Light Two', cursive;
         flex: 1;
         text-align: end;
-        font-size: 20px;
+        font-size: 25px;
         margin-right: 15px;
-        margin-top: 24px;
+        margin-top: 17px;
     }
 
 
@@ -82,21 +90,22 @@
         display: flex;
     }
     .main-container-item{
+        font-family: 'Shadows Into Light Two', cursive;
         flex: 1;
         margin-left: 15px;
         margin-top: -5px;
-        font-size: 25px;
+        font-size: 30px;
     }
 
 
     .footer {
+        border-top: solid 2px black;
         vertical-align: middle;
         text-align: center;
         padding: 15px;
         bottom:0;
         width:100%;
         height:200px;
-        background-color: #D2FFD2;
         filter: alpha(opacity:10);"
     }
 </style>
@@ -106,7 +115,7 @@
 <div class="nav-bar">
     <div class="flex-box1">
         <div class="main-container">
-            <div class="main-container-item"><a href="/" class="a-menu"><img src="/static/common/img/heart.png" alt="logo" class="main_logo">Blog Logo</a></div>
+            <div class="main-container-item"><a href="/" class="a-menu"><img src="/static/common/img/heart.png" alt="logo" class="main_logo">92Hoy</a></div>
         </div>
     </div>
     <div class="flex-box2">

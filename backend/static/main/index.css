@@ -11,6 +11,86 @@
     width: 50%;
     text-align: center;
     vertical-align: middle;
-
     display: inline-block;
+}
+#main_name{
+    margin-top: 10px;
+    margin-left: -50px;
+    text-align: center;
+    font-size: 70px;
+    font-family: 'Montez', cursive;
+}
+#main_name_toggle{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 70px;
+    font-family: 'Montez', cursive;
+}
+body{
+
+    background: linear-gradient( 70deg, #ffffff, #CEECF5 );
+}
+
+.index-flex-container1{
+    display: flex;
+    width:70%;
+    height:300px;
+    text-align: center;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 50px;
+    min-width:700px;
+}
+.index-flex-container2{
+    display: flex;
+    width:70%;
+    height:300px;
+    text-align: center;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom: 50px;
+    min-width:700px;
+}
+.index-flexbox1{
+    flex: 2;
+    max-width: 66%;
+    background-color: blanchedalmond;
+    border: solid 5px white;
+}
+.index-flexbox2{
+    flex: 1;
+    max-width: 33%;
+    background-color: #0b2e13;
+    border: solid 5px white;
+}
+.index-flexbox3{
+    flex: 1;
+    max-width: 33%;
+    background-color: #6f42c1;
+    border: solid 5px white;
+}
+
+
+.index-flexbox4{
+    flex: 1;
+    max-width: 33%;
+    background-color: #6f42c1;
+    border: solid 5px white;
+}
+.index-flexbox5{
+    flex: 1;
+    max-width: 33%;
+    background-color: #0b2e13;
+    border: solid 5px white;
+}
+.index-flexbox6{
+    flex: 2;
+    max-width: 66%;
+    background-color: #6f42c1;
+    border: solid 5px white;
+}
+
+img{
+    width:100%;
+    height:100%;
 }
