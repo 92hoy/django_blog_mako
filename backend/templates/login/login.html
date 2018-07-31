@@ -7,22 +7,23 @@
 
 <%block name="containor">
 <div class="login_container">
-<div class="login_box">
-    <div class="login_item">123</div>
+  <div class="login_box">
+      <div class="login_item">123</div>
+      <button>reg</button>
+  </div>
 
+  <div class="regist_box">
+      <div class="regist_item">123</div>
+  </div>
 </div>
-
-<div class="regist_box">
-    <div class="regist_item">123</div>
-</div>
-    </div>
 </%block>
 
 <%block name="scriptDown">
 <script>
 $(document).ready(function() {
   console.log("ready");
-    $('.regist_box').show()
+    $('.login_box').show()
+    $('.regist_box').hide()
 })
 </script>
 </%block>
