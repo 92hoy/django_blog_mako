@@ -53,30 +53,47 @@ body{
     font-size: 20px;
 }
 .login_button{
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 250px;
-  border: solid 1px black;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+    border: solid 1px black;
 }
 
 .regist_box{
-    margin :auto;
     margin-top: 100px;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
-    height:600px;
-    width: 450px;
-    border: solid 1px black;
+    width: 350px;
+    min-height: 700px;
+    border: solid 2px #1b1e21;
+    border-radius: 5%;
+    background-color: #ffffff;
+    background: linear-gradient( 50deg, #ffffff, #e6ffff );
+
 
 }
-.regist_item{
+.regist_item_input{
+    flex-direction: column;
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
-    height:250px;
-    width: 150px;
-    border: solid 1px black;
+
+}
+.regist_input{
+    margin-bottom: 20px;
+    width:260px;
+    font-size: 20px;
+}
+.regist_item_button{
+    flex-direction: row;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
 
 }
 
@@ -85,5 +102,8 @@ body{
     color: red;
 }
 #reg{
+    margin-right: 30px;
+}
+#back{
     margin-right: 30px;
 }
