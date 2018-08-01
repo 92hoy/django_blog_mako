@@ -1,28 +1,37 @@
 <%inherit file="../base/base.html"/>
 
 <%block name="css">
-    <link rel="stylesheet" type="text/css" href="/static/login/login.css">
+<link rel="stylesheet" type="text/css" href="/static/login/login.css">
 </%block>
 
 
 <%block name="containor">
 <div class="login_container">
-<div class="login_box">
-    <div class="login_item">123</div>
 
-</div>
+    <div class="login_box">
+        <div class="login_item_input">
+            <label style="font-size: 25px;">ID</label><input type="text" class="login_input">
+            <label style="font-size: 25px;">PW</label><input type="text" class="login_input">
 
-<div class="regist_box">
-    <div class="regist_item">123</div>
-</div>
+        </div>
+        <div class="login_item_button">
+            <button id="reg" class="button_reg">Regist</button>
+            <button onclick="btn_reg" class="button_reg">Create</button>
+        </div>
+
     </div>
+
+    <div class="regist_box">
+        <div class="regist_item">123</div>
+    </div>
+</div>
 </%block>
 
 <%block name="scriptDown">
 <script>
-$(document).ready(function() {
-  console.log("ready");
-    $('.regist_box').show()
-})
+    $(document).ready(function() {
+        console.log("ready");
+        $('.regist_box').show()
+    })
 </script>
 </%block>

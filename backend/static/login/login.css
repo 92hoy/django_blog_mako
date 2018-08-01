@@ -1,25 +1,55 @@
+body{
+    font-family: 'Gamja Flower', cursive;
+}
 .login_container{
-    margin: auto;
+    min-height: 1000px;
+    min-width: 700px;
 }
 
 .login_box{
+    margin-top: 100px;
+    flex-direction: column;
     margin-left: auto;
     margin-right: auto;
     display: flex;
-    height:400px;
-    width: 200px;
-    border: solid 1px black;
+    width: 350px;
+    min-height: 550px;
+    border: solid 2px #1b1e21;
+    border-radius: 5%;
+    background-color: #ffffff;
+    background: linear-gradient( 50deg, #ffffff, #e6ffff );
 
 }
-.login_item{
+.login_item_input{
+    flex-direction: column;
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
-    height:250px;
-    width: 150px;
-    border: solid 1px black;
+    height: 300px;
 
+
+}
+.login_item_button{
+    flex-direction: row;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+
+
+}
+.button_reg {
+    font-size: 25px;
+    width: 120px;
+    border-radius: 12%;
+    background: linear-gradient( 200deg, #ffffff, #f0f0f5 );
+
+}
+.login_input{
+    margin-bottom: 30px;
+    width:260px;
+    font-size: 20px;
 }
 
 
@@ -44,4 +74,7 @@
 }
 #ff{
     color: red;
+}
+#reg{
+    margin-right: 30px;
 }
