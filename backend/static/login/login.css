@@ -19,6 +19,7 @@ body{
     background-color: #ffffff;
     background: linear-gradient( 50deg, #ffffff, #e6ffff );
 
+
 }
 .login_item_input{
     flex-direction: column;
@@ -51,14 +52,20 @@ body{
     width:260px;
     font-size: 20px;
 }
-
+.login_button{
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
+  border: solid 1px black;
+}
 
 .regist_box{
-    margin-left: auto;
-    margin-right: auto;
+    margin :auto;
+    margin-top: 100px;
     display: flex;
-    height:400px;
-    width: 200px;
+    height:600px;
+    width: 450px;
     border: solid 1px black;
 
 }
@@ -72,6 +79,8 @@ body{
     border: solid 1px black;
 
 }
+
+
 #ff{
     color: red;
 }
