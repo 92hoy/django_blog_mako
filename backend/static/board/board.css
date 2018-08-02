@@ -1,8 +1,36 @@
-.board_test{
+.board_container{
     font-family: 'Gamja Flower', cursive;
-    font-size: 100px;
-    size:100px;
-    color: black;
-    text-align: center;
-    margin: 200px;
+    min-height: 1000px;
+    min-width: 700px;
 }
+.board-header-button{
+    float: right;
+    margin-top: 50px;
+    margin-right: 50px;
+}
+.board-box{
+    flex-direction: column;
+    margin-top: 40px;
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-bottom: 30px;
+    display: flex;
+    height:200px;
+    min-width: 500px;
+    border: solid 3px #34314c;
+    border-radius: 10px;
+    background: #ffc952;
+    padding: 20px;
+
+}
+.board-title{
+    display: flex;
+    font-size:50px;
+
+}
+.board-content{
+    display: flex;
+    font-size: 20px;
+    margin-left: 30px;
+}
+
