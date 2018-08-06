@@ -1,22 +1,18 @@
+import logging.config
 import os
+from django.utils.log import DEFAULT_LOGGING
+from logging import handlers
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'crk%#0zf72n$ud!zo=lr5zl!uxd!$b0j^vhii4-jj*3f-h2$m@'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -76,29 +72,48 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'jhy.wsgi.application'
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'simple': {
+            'format': '%(asctime)s %(levelname)s: %(message)s'
+        },
+    },
 
-# Database
-# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
+        },
+        'logfile': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.TimedRotatingFileHandler',
+            'filename': 'log_example.log',
+            'formatter': 'simple',
+            'when': 'midnight',
+            'interval': 1,
+            'backupCount': 30,
+        },
+    },
+    'root': {
+        'level': 'DEBUG',
+        'handlers': ['console', 'logfile']
+    },
 }
-"""
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'jhy',
+        'NAME': 'main',
         'USER': 'admin',
         'PASSWORD': '0000',
         'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'PORT': '3316',
     }
 }
-"""
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -117,7 +132,7 @@ AUTH_PASSWORD_VALIDATORS = [
 DATABASAE_OPTIONS = {'charset':'utf8'}
 
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ko-kr'
 
 TIME_ZONE = 'Asia/Seoul'
 

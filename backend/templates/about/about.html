@@ -1,0 +1,41 @@
+<%inherit file="../base/base.html"/>
+
+<%block name="css">
+<link rel="stylesheet" href="/static/about/about.css">
+
+</%block>
+
+<%block name="containor">
+<div class="about_container">
+    <canvas id="myChart"></canvas>
+</div>
+</%block>
+
+<%block name="scriptDown">
+<script>
+    $(document).ready(function() {
+        console.log("ready");
+    })
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+            labels: ["Django", "Python", "Mysql", "github", "JS", "Jquery"],
+            datasets: [{
+                label: "My First dataset",
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [10, 9, 8, 10, 6, 8],
+            }]
+        },
+
+        // Configuration options go here
+        options: {}
+    });
+
+
+</script>
+</%block>

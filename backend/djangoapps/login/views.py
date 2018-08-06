@@ -15,5 +15,8 @@ def login(request):
      #
      #    inputId = request.POST.get('inputId')
      #    inputPw = request.POST.get('inputPw')
+    logging.debug('=======login========debug')
+    logging.debug('login 페이지 접속')
 
+    logging.debug('========login=======debug')
     return render(request, 'login/login.html')

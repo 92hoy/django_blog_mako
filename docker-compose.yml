@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  db:
+    container_name: django_blog_mako
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "0000"
+      MYSQL_DATABASE: "main"
+      MYSQL_USER: "admin"
+      MYSQL_PASSWORD: "0000"
+    ports:
+      - "3316:3306"
+    build:
+      context: .
+      dockerfile: Dockerfile_db
