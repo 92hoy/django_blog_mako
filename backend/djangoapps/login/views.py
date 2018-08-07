@@ -11,6 +11,7 @@ import base64
 import logging
 import logging.config
 from logging import handlers
+from backend.models import User
 
 def login(request):
     print("login")
@@ -20,3 +21,11 @@ def login(request):
      #    inputPw = request.POST.get('inputPw')
     logging.debug('login 페이지 접속')
     return render(request, 'login/login.html')
+
+def regist(request):
+
+    #Post.objects.create(user_id=me, password='Sample title', name='Test',ph='')
+
+    logging.debug('계정생성 Test')
+
+    return JsonResponse({'return':'success'})

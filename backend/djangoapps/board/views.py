@@ -11,6 +11,8 @@ import base64
 import logging
 import logging.config
 from logging import handlers
+from backend.models import User
+from backend.models import Board
 
 def board(request):
     print("board")

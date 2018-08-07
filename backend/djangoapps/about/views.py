@@ -11,6 +11,7 @@ import base64
 import logging
 import logging.config
 from logging import handlers
+from backend.models import User
 
 
 def about(request):

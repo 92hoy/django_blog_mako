@@ -6,7 +6,9 @@ class User(models.Model) :
     user_id = models.CharField(max_length=30,null=False)
     password = models.CharField(max_length=40, null=False)
     name = models.CharField(max_length=20)
+    ph = models.CharField(max_length=20, default='0')
     delete_yn = models.TextField(default='N')
+    user_role = models.TextField(default='U')
     create_date = models.DateTimeField(default=timezone.now)
     modify_date = models.DateTimeField(auto_now_add=True, null=True)
 
