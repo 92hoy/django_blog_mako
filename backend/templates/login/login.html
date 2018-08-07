@@ -1,7 +1,7 @@
 <%inherit file="../base/base.html"/>
 
 <%block name="css">
-<link rel="stylesheet" type="text/css" href="/static/login/login.css">
+<link rel="stylesheet"  href="/static/login/login.css">
 </%block>
 
 
@@ -13,35 +13,57 @@
             L O G  I N
         </div>
         <div class="login_item_input">
-          <div class="form-group">
-            <label for="exampleInputEmail1">ID</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ID">
-          </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">ID</label>
+                <input type="TEXT" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ID">
+            </div>
 
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-          </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
         </div>
 
         <div class="login_item_button">
-                <button type="button" class="btn btn-primary btn-regist">Regist</button>
-                <button onclick="btn_login()" type="button" class="btn btn-success btn-login">Login</button>
+            <button type="button" class="btn btn-primary btn-regist">Regist</button>
+            <button onclick="btn_login()" type="button" class="btn btn-success btn-login">Login</button>
         </div>
 
     </div>
 
     <div class="regist_box">
+        <div class="regist-logo">
+            R E G I S T
+        </div>
         <div class="regist_item_input">
-            <label style="font-size: 25px;">ID</label><input type="text" class="regist_input">
-            <label style="font-size: 25px;">PW</label><input type="text" class="regist_input">
-            <label style="font-size: 25px;">PW2</label><input type="text" class="regist_input">
-            <label style="font-size: 25px;">Name</label><input type="text" class="regist_input">
-            <label style="font-size: 25px;">PhoneNumber</label><input type="text" class="regist_input">
+            <div class="form-group">
+                <label >ID</label>
+                <input type="TEXT" class="form-control" id="exampleInputEmail1" placeholder="ID">
+            </div>
+
+            <div class="form-group">
+                <label >Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+
+            <div class="form-group">
+                <label >Password2</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password2">
+            </div>
+
+            <div class="form-group">
+                <label >Name</label>
+                <input type="TEXT" class="form-control" id="exampleInputEmail1" placeholder="Name">
+            </div>
+
+            <div class="form-group">
+                <label >Phone number</label>
+                <input type="TEXT" class="form-control" id="exampleInputEmail1" placeholder="Phone number">
+            </div>
         </div>
         <div class="regist_item_button">
-            <button id="back" class="button_reg">Back</button>
-            <button onclick="btn_regist()" class="button_reg">Regist</button>
+            <button type="button" id="back" class="btn btn-primary btn-back">Back</button>
+            <button onclick="btn_regist()" type="button" class="btn btn-success btn-real-regist">Regist</button>
         </div>
     </div>
 

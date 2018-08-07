@@ -23,7 +23,7 @@ def about(request):
     logging.debug('===============debug')
     logging.debug('About 페이지 접속')
     logging.info('info 페이지 접속')
-    logging.warn()
+    logging.warn('warn')
     logging.error('error 페이지 접속')
     logging.critical('critical 페이지 접속')
     logging.debug('===============debug')
