@@ -9,12 +9,26 @@
 <div class="board_container">
 
     <div class="board-header-button">
-        <button type="button" class="btn btn-danger btn-submit">게시글 작성</button>
+        <button type="button" id="b_a" onclick="btn_add()" class="btn btn-danger btn-submit">게시글 작성</button>
+        <button type="button" id="add_cancel" class="btn btn-info btn-submit">작성 취소</button>
+    </div>
+
+    <div class="board-box-input" id="add_board">
+        <div class="board-title">
+            <input type="text" name="text" placeholder="게시글 제목" style="background-color:transparent; border: 0px;">
+        </div>
+        <div class="board-content">
+            <input type="text" name="text" placeholder="내용을 적어주세요." style="background-color:transparent; border: 0px;">
+        </div>
     </div>
 
     <div class="board-box">
-        <div class="board-title">게시글 제목</div>
-        <div class="board-content"> flex-direction: column;flex-direction: column;</div>
+        <div class="board-title">
+            <th>dddd</th>
+        </div>
+        <div class="board-content">
+            <th>dkdkdkdkdkdkdkd</th>
+        </div>
     </div>
     <div class="board-box">
         <div class="board-title">게시글 제목</div>
@@ -37,7 +51,21 @@
 <script>
     $(document).ready(function() {
         console.log("ready");
+        $('#add_board').hide()
+        $('#add_cancel').hide()
+        $('#add_cancel').click(function(){
+            $('#add_board').hide()
+            $('#add_cancel').hide()
+            $('#b_a').show()
+        })
     })
+
+    function btn_add(){
+        $('#add_board').show()
+        $('#add_cancel').show()
+        $('#b_a').hide()
+
+    }
 
 
 </script>
