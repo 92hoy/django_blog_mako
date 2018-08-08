@@ -15,12 +15,18 @@ from backend.models import User
 from backend.models import Board
 
 def board(request):
-    print("board")
-     # if request.is_ajax():
-     #
-     #    inputId = request.POST.get('inputId')
-     #    inputPw = request.POST.get('inputPw')
 
-    logging.debug('login 페이지 접속')
+    logging.debug('게시판 페이지 접속')
 
     return render(request, 'board/board.html')
+
+def board_add(request):
+
+    if request.is_ajax():
+        title = request.POST.get('title_input')
+        content = request.POST.get('content_input')
+        print(title)
+        print(content)
+
+
+    JsonResponse({'return':'success'})

@@ -44,4 +44,11 @@
     font-size: 20px;
     margin-left: 30px;
 }
-
+.title-input{
+    background-color:transparent;
+    border: 0px;
+}
+.content-input{
+    background-color:transparent;
+    border: 0px;
+}

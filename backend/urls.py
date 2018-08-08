@@ -12,7 +12,11 @@ from .djangoapps.main import views as MainViews
 
 urlpatterns = [
     url('login$', LoginViews.login, name='login'),
-    url('board$', BoardViews.board, name='board'),
     url('about$', AboutViews.about, name='about'),
+
+    #/backend/templates/board/board.html
+    url('board$', BoardViews.board, name='board'),
+    url('board_add$', BoardViews.board_add, name='board_add'),
+
     url('$', MainViews.main, name='main'),
 ]
