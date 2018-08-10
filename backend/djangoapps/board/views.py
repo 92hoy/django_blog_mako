@@ -32,8 +32,8 @@ def board_add(request):
         content = request.POST.get('content_input')
         me = User.objects.get(username='JHY')
 
-        board_add = Board(user_id=me, title=title, content=content)
-        board_add.save()
+        Board.objects.create(user_id=me, title=title, content=content)
+
 
         print(title)
         print(content)
