@@ -20,6 +20,21 @@ def login(request):
      #    inputId = request.POST.get('inputId')
      #    inputPw = request.POST.get('inputPw')
     logging.debug('login 페이지 접속')
+
+    # ------login session example-------
+    # inputId = request.POST.get('inputId')
+    # inputPw = request.POST.get('inputPw')
+    #
+    # if userObject.user_pwd == inputPw:
+    #             request.session['user_id'] = userObject.user_id
+    #             request.session['user_name'] = userObject.user_name
+    #             request.session['language'] = userObject.language
+    #             request.session['user_role'] = userObject.user_role
+    #             request.session[translation.LANGUAGE_SESSION_KEY] = userObject.language
+    #             translation.activate(userObject.language)
+    #
+    #             return JsonResponse({'result':'success'})
+    # ------login session example-------
     return render(request, 'login/login.html')
 
 def regist(request):
