@@ -157,6 +157,10 @@
 
     </div>
 </div>
+##${request.session['resv_seq']}##
+##% if request.session['user_role'] == 'S':
+  <!--여기에 세션있을때 보일 화면 구성-->
+##% endif
 
 <div class="content-container">
     <%block name="containor">
