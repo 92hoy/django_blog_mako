@@ -32,6 +32,7 @@ def login(request):
             print(rows)
 
             if len(rows) !='0':
+
                 with connections['default'].cursor() as cur:
                     query = '''
                               select user_id,name,user_role
@@ -40,35 +41,23 @@ def login(request):
                         '''.format(user_id=inputId,user_pw=inputPw)
                     cur.execute(query)
                     row = cur.fetchall()
+
                 request.session['user_id'] = row[0]
                 request.session['user_name'] = row[1]
                 request.session['user_role'] = row[2]
 
-                logging.debug(inputId,'(',name,')','login 페이지 접속')
+                logging.debug(row[0],'(',row[1],')',row[2],'login 페이지 접속')
                 return JsonResponse({'return':'success'})
             else :
                 logging.warning('ID',inputId,'PW',inputPw,'login 실패')
                 return JsonResponse({'return':'false'})
 
-
-
-    # ------login session example-------
-    # inputId = request.POST.get('inputId')
-    # inputPw = request.POST.get('inputPw')
-    #
-    # if userObject.user_pwd == inputPw:
-    #             request.session['user_id'] = userObject.user_id
-    #             request.session['user_name'] = userObject.user_name
-    #             request.session['language'] = userObject.language
-    #             request.session['user_role'] = userObject.user_role
-    #             request.session[translation.LANGUAGE_SESSION_KEY] = userObject.language
-    #             translation.activate(userObject.language)
-    #
-    #             return JsonResponse({'result':'success'})
-    # ------login session example-------
     return render(request, 'login/login.html')
 
 def regist(request):
+
+    print("regist")
+
     if request.is_ajax():
         user_id = request.POST.get('user_id')
         user_pw = request.POST.get('user_pw')
