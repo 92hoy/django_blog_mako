@@ -131,7 +131,7 @@
 
         if(lock ==0){
             swal("Good job!", "Account Regist!", "success");
-            /*
+
             $.ajax({
                 type: "POST",
                 url: "/login/regist",
@@ -153,6 +153,7 @@
                             text : "등록 완료",
                             type : "success"
                         }).then(function(){
+                            alert("생성 성공");
                             location.reload()
                         });
 
@@ -176,7 +177,7 @@
                     }
                 },
             });
-            */
+
         }
 
     };
