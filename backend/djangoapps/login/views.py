@@ -53,11 +53,8 @@ def login(request):
             logging.warning('ID=',inputId,'PW=',inputPw,'login 실패')
             return JsonResponse({'return':'false'})
 
-        #login_out에 쓸거
-        # try:
-        #     del request.session['member_id']
-        # except KeyError:
-        #     pass
+
+
     context={}
     return render(request, 'login/login.html',context)
 
@@ -70,6 +67,9 @@ def regist(request):
         user_pw = request.POST.get('password')
         name = request.POST.get('name')
         ph = request.POST.get('ph')
+
+        # reg = User(user_id=user_id, password=user_pw, name=name,ph=ph)
+        # reg.save()
 
         with connections['default'].cursor() as cur:
             query = '''
@@ -85,8 +85,22 @@ def regist(request):
                               '{ph}')
                 '''.format(user_id=user_id,user_pw=user_pw,name=name,ph=ph)
             cur.execute(query)
-        #User.objects.create(user_id=user_id, password=user_pw, name=name,ph=ph)
 
     logging.debug('계정생성 Test')
+
+    return JsonResponse({'return':'success'})
+
+def logout(request):
+
+    try:
+        del request.session['user_id']
+        del request.session['user_name']
+        del request.session['user_role']
+
+        request.session.modified = True
+
+    except KeyError:
+        pass
+
 
     return JsonResponse({'return':'success'})

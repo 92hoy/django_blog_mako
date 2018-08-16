@@ -12,6 +12,7 @@ from .djangoapps.main import views as MainViews
 
 urlpatterns = [
     url('login$', LoginViews.login, name='login'),
+    url('logout$', LoginViews.logout, name='logout'),
     url('regist$', LoginViews.regist, name='regist'),
     url('about$', AboutViews.about, name='about'),
 
