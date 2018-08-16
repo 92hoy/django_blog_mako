@@ -14,41 +14,41 @@ from logging import handlers
 from backend.models import User
 
 def login(request):
-    print("login!")
-
     if request.is_ajax():
 
         inputId = request.POST.get('user_id')
         inputPw = request.POST.get('password')
-        print(inputId,inputPw)
-        with connections['default'].cursor() as cur:
-            query = '''
-                      select user_id,password
-                      FROM User
-                      where user_id = '{user_id}' and password='{password}'
-                '''.format(user_id=inputId,password=inputPw)
-            cur.execute(query)
-            rows = cur.fetchall()
-            l_rows = len(rows)
 
+        # with connections['default'].cursor() as cur:
+        #     query = '''
+        #               select user_id,password
+        #               FROM User
+        #               where user_id = '{user_id}' and password='{password}'
+        #         '''.format(user_id=inputId,password=inputPw)
+        #     cur.execute(query)
+        #     rows = cur.fetchall()
+        #     l_rows = len(rows)
+        rows = User.objects.filter(user_id=inputId, password=inputPw)
+        len_rows = len(rows)
 
-        if l_rows != 0:
+        if len_rows != 0:
 
-            with connections['default'].cursor() as cur:
-                query = '''
-                          select user_id,name,user_role
-                          FROM User
-                          where user_id = '{user_id}'
-                    '''.format(user_id=inputId)
-                cur.execute(query)
-                row = cur.fetchall()
+            # with connections['default'].cursor() as cur:
+            #     query = '''
+            #               select user_id,name,user_role
+            #               FROM User
+            #               where user_id = '{user_id}'
+            #         '''.format(user_id=inputId)
+            #     cur.execute(query)
+            #     row = cur.fetchall()
 
-                request.session['user_id'] = row[0][0]
-                request.session['user_name'] = row[0][1]
-                request.session['user_role'] = row[0][2]
+            request.session['user_id'] = rows[0].user_id
+            request.session['user_name'] = rows[0].name
+            request.session['user_role'] = rows[0].user_role
 
-                logging.debug('login 페이지 접속')
+            logging.debug('login 페이지 접속')
             return JsonResponse({'return':'success'})
+
         else :
             logging.warning('ID=',inputId,'PW=',inputPw,'login 실패')
             return JsonResponse({'return':'false'})
@@ -58,8 +58,8 @@ def login(request):
         #     del request.session['member_id']
         # except KeyError:
         #     pass
-
-    return render(request, 'login/login.html')
+    context={}
+    return render(request, 'login/login.html',context)
 
 def regist(request):
 
@@ -85,7 +85,7 @@ def regist(request):
                               '{ph}')
                 '''.format(user_id=user_id,user_pw=user_pw,name=name,ph=ph)
             cur.execute(query)
-    #User.objects.create(user_id=user_id, password=user_pw, name=name,ph=ph)
+        #User.objects.create(user_id=user_id, password=user_pw, name=name,ph=ph)
 
     logging.debug('계정생성 Test')
 
