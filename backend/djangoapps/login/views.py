@@ -32,7 +32,7 @@ def login(request):
         len_rows = len(rows)
 
         if len_rows != 0:
-
+            print("debug ===",rows[0].user_id,rows[0].name)
             # with connections['default'].cursor() as cur:
             #     query = '''
             #               select user_id,name,user_role
@@ -46,6 +46,7 @@ def login(request):
             request.session['user_name'] = rows[0].name
             request.session['user_role'] = rows[0].user_role
 
+            print(request.session['user_id'])
             logging.debug('login 페이지 접속')
             return JsonResponse({'return':'success'})
 
