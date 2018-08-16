@@ -90,6 +90,7 @@
     function btn_login(){
         var user_id = $('#login_id').val();
         var password = $('#login_pw').val();
+        var lock=0;
 
         if (user_id == '') {
             swal("Error","ID를 입력하세요", "warning");
@@ -116,18 +117,17 @@
                         swal({
                             title : "Success",
                             text : "로그인 완료",
-                            type : "success"
+                            icon: "success"
                         }).then(function(){
-                            alert("생성 성공");
                             location.reload()
                         });
                     }
-                    else if (data.return != 'success') {
+                    else {
                         swal({
-                            title: "Good job!",
-                            text: "You clicked the button!",
-                            icon: "success",
-                            button: "Aww yiss!",
+                            title: "Login fail",
+                            text: "로그인에 실패하셨습니다",
+                            icon: "warning",
+                            button: "OK",
                         }).then(function(willDelete) {
                             if (willDelete) {return}
                             else {return}

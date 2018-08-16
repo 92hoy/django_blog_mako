@@ -14,43 +14,52 @@ from logging import handlers
 from backend.models import User
 
 def login(request):
-    print("login")
+    print("login!")
 
     if request.is_ajax():
 
-        inputId = request.POST.get('inputId')
-        inputPw = request.POST.get('inputPw')
-
+        inputId = request.POST.get('user_id')
+        inputPw = request.POST.get('password')
+        print(inputId,inputPw)
         with connections['default'].cursor() as cur:
             query = '''
-                      select user_id,user_pw
+                      select user_id,password
                       FROM User
-                      where user_id = '{user_id}' and user_pw='{user_pw}'
-                '''.format(user_id=inputId,user_pw=inputPw)
+                      where user_id = '{user_id}' and password='{password}'
+                '''.format(user_id=inputId,password=inputPw)
             cur.execute(query)
             rows = cur.fetchall()
-            print(rows)
+            l_rows = len(rows)
 
-            if len(rows) !='0':
 
-                with connections['default'].cursor() as cur:
-                    query = '''
-                              select user_id,name,user_role
-                              FROM User
-                              where user_id = '{user_id}'
-                        '''.format(user_id=inputId,user_pw=inputPw)
-                    cur.execute(query)
-                    row = cur.fetchall()
+        if l_rows != 0:
 
-                request.session['user_id'] = row[0]
-                request.session['user_name'] = row[1]
-                request.session['user_role'] = row[2]
+            with connections['default'].cursor() as cur:
+                query = '''
+                          select user_id,name,user_role
+                          FROM User
+                          where user_id = '{user_id}'
+                    '''.format(user_id=inputId)
+                cur.execute(query)
+                row = cur.fetchall()
 
-                logging.debug(row[0],'(',row[1],')',row[2],'login 페이지 접속')
-                return JsonResponse({'return':'success'})
-            else :
-                logging.warning('ID',inputId,'PW',inputPw,'login 실패')
-                return JsonResponse({'return':'false'})
+                print(row,'rows list=',row[0][0],row[0][1],row[0][2])
+
+                request.session['user_id'] = row[0][0]
+                request.session['user_name'] = row[0][1]
+                request.session['user_role'] = row[0][2]
+
+                logging.debug('login 페이지 접속')
+            return JsonResponse({'return':'success'})
+        else :
+            logging.warning('ID=',inputId,'PW=',inputPw,'login 실패')
+            return JsonResponse({'return':'false'})
+
+        #login_out에 쓸거
+        # try:
+        #     del request.session['member_id']
+        # except KeyError:
+        #     pass
 
     return render(request, 'login/login.html')
 
@@ -60,13 +69,13 @@ def regist(request):
 
     if request.is_ajax():
         user_id = request.POST.get('user_id')
-        user_pw = request.POST.get('user_pw')
-        name = request.POST.get('user_name')
+        user_pw = request.POST.get('password')
+        name = request.POST.get('name')
         ph = request.POST.get('ph')
 
         with connections['default'].cursor() as cur:
             query = '''
-                      INSERT INTO main.User
+                      INSERT INTO User
                                   (user_id,
                                   password,
                                   name,
