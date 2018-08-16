@@ -11,34 +11,4 @@ class Migration(migrations.Migration):
     dependencies = [
     ]
 
-    operations = [
-        migrations.CreateModel(
-            name='Board',
-            fields=[
-                ('board_seq', models.AutoField(primary_key=True, serialize=False)),
-                ('user_id', models.CharField(max_length=30)),
-                ('title', models.CharField(max_length=200)),
-                ('content', models.TextField()),
-                ('create_date', models.DateTimeField(default=django.utils.timezone.now)),
-                ('modify_date', models.DateTimeField(auto_now_add=True, null=True)),
-            ],
-            options={
-                'db_table': 'Board',
-            },
-        ),
-        migrations.CreateModel(
-            name='User',
-            fields=[
-                ('user_seq', models.AutoField(primary_key=True, serialize=False)),
-                ('user_id', models.CharField(max_length=30)),
-                ('password', models.CharField(max_length=40)),
-                ('name', models.CharField(max_length=20)),
-                ('delete_yn', models.TextField(default='N')),
-                ('create_date', models.DateTimeField(default=django.utils.timezone.now)),
-                ('modify_date', models.DateTimeField(auto_now_add=True, null=True)),
-            ],
-            options={
-                'db_table': 'User',
-            },
-        ),
-    ]
+

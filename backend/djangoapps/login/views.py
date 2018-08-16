@@ -43,8 +43,6 @@ def login(request):
                 cur.execute(query)
                 row = cur.fetchall()
 
-                print(row,'rows list=',row[0][0],row[0][1],row[0][2])
-
                 request.session['user_id'] = row[0][0]
                 request.session['user_name'] = row[0][1]
                 request.session['user_role'] = row[0][2]

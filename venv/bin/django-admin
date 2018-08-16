@@ -1,4 +1,4 @@
-#!/Users/johoyoung/workspace/django_blog_mako/venv/bin/python3
+#!/Users/johoyoung/workspace/django_blog_mako/venv/bin/python3.6
 
 # -*- coding: utf-8 -*-
 import re
