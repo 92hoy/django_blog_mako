@@ -13,7 +13,25 @@ import logging.config
 from logging import handlers
 from backend.models import User
 
+"""
 def login(request):
+    return render ....
+
+def api_login(request):
+    return Json ....
+
+"""
+
+def login(request):
+
+    print(request)
+    print(request.session)
+
+    if 'user_id' in request.session:
+        print("request.session['user_id'] -> ", request.session['user_id'])
+    else:
+        pass
+
     if request.is_ajax():
 
         inputId = request.POST.get('user_id')
@@ -46,7 +64,8 @@ def login(request):
             request.session['user_name'] = rows[0].name
             request.session['user_role'] = rows[0].user_role
 
-            print(request.session['user_id'])
+            print("request.session['user_id'] -> ", request.session['user_id'])
+
             logging.debug('login 페이지 접속')
             return JsonResponse({'return':'success'})
 
@@ -54,7 +73,7 @@ def login(request):
             logging.warning('ID=',inputId,'PW=',inputPw,'login 실패')
             return JsonResponse({'return':'false'})
 
-
+        request.session['user_id']
 
     context={}
     return render(request, 'login/login.html',context)
@@ -94,11 +113,14 @@ def regist(request):
 def logout(request):
 
     try:
+
+        print('-------------------------------> exit')
         del request.session['user_id']
         del request.session['user_name']
         del request.session['user_role']
-
+        logging.debug('user_id Logout')
         request.session.modified = True
+
 
     except KeyError:
         pass
