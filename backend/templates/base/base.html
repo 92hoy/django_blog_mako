@@ -141,10 +141,7 @@
   <div class="flex-box1">
     <div class="main-container">
       <div class="main-container-item"><a href="/" class="a-menu"><img src="/static/common/img/heart.png" alt="logo" class="main_logo">92Hoy</a></div>
-      333
-      % if user_id in request.session:
-      ${request.session['user_id']}
-      % endif
+
     </div>
   </div>
   <div class="flex-box2">
@@ -157,7 +154,12 @@
   </div>
   <div class="flex-box3">
     <div class="login-container">
-      <div class="login-container-item"><a href="/login" class="a-menu">Login</a></div>
+      % if 'user_id' in request.session:
+        <div class="login-container-item">${request.session['user_id']}</div>
+      % else:
+        <div class="login-container-item"><a href="/login" class="a-menu">Login</a></div>
+      % endif
+
     </div>
 
   </div>

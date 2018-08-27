@@ -1,10 +1,15 @@
-<%inherit file="../base/base.html"/>
+<%inherit file="/base/base.html"/>
 
 <%block name="css">
 <link rel="stylesheet" href="/static/main/index.css">
 </%block>
 
 <%block name="containor">
+% if 'user_id' in request.session:
+        세션 있는상태
+      % else:
+        없는상태
+      % endif
 <div id="main_name">Django & Python
     <br> &nbsp;  &nbsp; With
     <br> &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; Johoyoung
