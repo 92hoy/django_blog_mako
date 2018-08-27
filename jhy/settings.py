@@ -72,46 +72,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'jhy.wsgi.application'
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': True,
-    'formatters': {
-        'simple': {
-            'format': '%(asctime)s %(levelname)s: %(message)s'
-        },
-    },
-
-    'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-            'formatter': 'simple'
-        },
-        'logfile': {
-            'level': 'DEBUG',
-            'class': 'logging.handlers.TimedRotatingFileHandler',
-            'filename': 'log_example.log',
-            'formatter': 'simple',
-            'when': 'midnight',
-            'interval': 1,
-            'backupCount': 30,
-        },
-    },
-    'root': {
-        'level': 'DEBUG',
-        'handlers': ['console', 'logfile']
-    },
-}
-
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'main',
-        'USER': 'admin',
+        'NAME': '92hoy',
+        'USER': '92hoy',
         'PASSWORD': '0000',
         'HOST': '127.0.0.1',
-        'PORT': '3316',
+        'PORT': '3306',
     }
 }
 
