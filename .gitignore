@@ -4,3 +4,4 @@
 /media
 /venv
 *.log
+/jhy/settings.py

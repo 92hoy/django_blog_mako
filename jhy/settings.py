@@ -73,13 +73,21 @@ TEMPLATES = [
 WSGI_APPLICATION = 'jhy.wsgi.application'
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': '92hoy',
+    #     'USER': '92hoy',
+    #     'PASSWORD': '0000',
+    #     'HOST': '127.0.0.1',
+    #     'PORT': '3306',
+    # }
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': '92hoy',
-        'USER': '92hoy',
+        'NAME': 'main',
+        'USER': 'admin',
         'PASSWORD': '0000',
         'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'PORT': '3316',
     }
 }
 
