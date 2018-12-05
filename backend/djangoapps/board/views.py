@@ -19,8 +19,15 @@ def board(request):
 
     logging.debug('게시판 페이지 접속')
 
-    b_data = Board.objects.all()
-    print("data all = ",b_data)
+    board_data = Board.objects.all()
+    for data in board_data:
+        id = data.user_id
+        title = data.title
+        content = data.content
+        print(id,'/',title,'/',content)
+    context =[]
+
+    print("data all = ",board_data)
     return render(request, 'board/board.html')
 
 def board_add(request):
@@ -30,14 +37,18 @@ def board_add(request):
 
         title = request.POST.get('title_input')
         content = request.POST.get('content_input')
-        me = User.objects.get(username='JHY')
+        user = request.session['user_id']
+        print (user)
 
-        Board.objects.create(user_id=me, title=title, content=content)
+        if len(user) ==0:
+            return({"return":"fail"})
+        else:
+
+            Board.objects.create(user_id=user, title=title, content=content)
 
 
-        print(title)
-        print(content)
+
         logging.debug('게시글 작성')
 
 
-    JsonResponse({'return':'success'})
+    return JsonResponse({'return':'success'})

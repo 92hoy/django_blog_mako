@@ -7,7 +7,7 @@
 
 <%block name="containor">
 <div class="board_container">
-
+    %if request.session['user_id'] :
     <div class="board-header-button">
         <button type="button" id="add_btn"  class="btn btn-primary btn-submit">게시글 작성</button>
         <button type="button" id="btn_add" onclick="btn_add()" class="btn btn-warning btn-submit">게시글 작성</button>
@@ -22,15 +22,18 @@
             <textarea id="content_input" rows="3" cols="100" class="content-input" placeholder="내용을 적어주세요."></textarea>
         </div>
     </div>
-
+    %endif
     <div class="board-box">
+      <div class="board-user-id">JHY</div>
         <div class="board-title">
             <th>이 부분은 th</th>
         </div>
+
         <div class="board-content">
             <th>여기도 content th</th>
         </div>
     </div>
+
     <div class="board-box">
         <div class="board-title">테스트 게시글 제목</div>
         <div class="board-content"> 왜 색상은 어울리지 않는것인가 .</div>

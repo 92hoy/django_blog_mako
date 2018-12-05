@@ -29,6 +29,7 @@ def login(request):
 
     if 'user_id' in request.session:
         print("request.session['user_id'] -> ", request.session['user_id'])
+        return render(request, "main/index.html")
     else:
         pass
 
