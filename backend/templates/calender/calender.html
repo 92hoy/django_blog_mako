@@ -1,0 +1,34 @@
+<%inherit file="../base/base.html"/>
+
+<%block name="css">
+<link rel="stylesheet" href="/static/board/board.css">
+
+</%block>
+
+<%block name="containor">
+<div>
+
+  <div class="box_base">
+    <div id='calendar'></div>
+  </div>
+
+</div>
+
+</%block>
+
+<%block name="scriptDown">
+<script>
+  $(document).ready(function() {
+  });
+
+  $(function() {
+
+    // page is now ready, initialize the calendar...
+
+    $('#calendar').fullCalendar({
+      // put your options and callbacks here
+    })
+
+  });
+</script>
+</%block>

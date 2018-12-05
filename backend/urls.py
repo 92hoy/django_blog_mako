@@ -7,6 +7,7 @@ from .djangoapps.login import views as LoginViews
 from .djangoapps.board import views as BoardViews
 from .djangoapps.logout import views as LogoutViews
 from .djangoapps.about import views as AboutViews
+from .djangoapps.calender import views as CalendertViews
 
 from .djangoapps.main import views as MainViews
 
@@ -19,6 +20,9 @@ urlpatterns = [
     #/backend/templates/board/board.html
     url('board$', BoardViews.board, name='board'),
     url('board_add$', BoardViews.board_add, name='board_add'),
+
+    # Calender
+    url('calender$', CalendertViews.calender, name='calender'),
 
     url('$', MainViews.main, name='main'),
 ]
