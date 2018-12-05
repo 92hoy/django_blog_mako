@@ -7,7 +7,7 @@
 
 <%block name="containor">
 <div class="board_container">
-    %if request.session['user_id'] :
+    % if 'user_id' in request.session:
     <div class="board-header-button">
         <button type="button" id="add_btn"  class="btn btn-primary btn-submit">게시글 작성</button>
         <button type="button" id="btn_add" onclick="btn_add()" class="btn btn-warning btn-submit">게시글 작성</button>
@@ -23,6 +23,7 @@
         </div>
     </div>
     %endif
+  <!--
     <div class="board-box">
       <div class="board-user-id">JHY</div>
         <div class="board-title">
@@ -33,15 +34,23 @@
             <th>여기도 content th</th>
         </div>
     </div>
-
-    <div class="board-box">
-        <div class="board-title">테스트 게시글 제목</div>
-        <div class="board-content"> 왜 색상은 어울리지 않는것인가 .</div>
+    -->
+    %for board in context['board_list']:
+    <div class="board-box" id="hid_${board['board_seq']}">
+      <div id="board_seq" hidden>${board['board_seq']}</div>
+      <div id="board_c_date" hidden>${board['create_date']}</div>
+      <div class="board-user-id">${board['user_id']}</div>
+      <div class="board-title">${board['title']}</div>
+      <div class="board-content"> ${board['content']}</div>
+      %if request.session['user_id'] == board['user_id'] or request.session['user_role']=='S':
+      <div id="btn_del" class="btn btn-danger" onclick="del_btn(${board['board_seq']})">삭제</div>
+      %endif
     </div>
-
+    %endfor
 
 </div>
-
+<div hidden id="hidden_id">request.session['user_id']</div>
+<div hidden id="hidden_role">request.session['user_role']</div>
 </%block>
 
 <%block name="scriptDown">
@@ -94,7 +103,6 @@
                     content_input: content_input,
                 },
                 success: function (data) {
-                    console.log(data);
                     if (data.return == 'success') {
                         swal({
                             title : "Success",
@@ -123,7 +131,55 @@
             });
         }
     }
+    function del_btn(seq) {
+
+        var lock=0;
+
+        if(lock ==0){
+            $.ajax({
+                type: "POST",
+                url: "/board/board_del",
+                data: {
+                    'csrfmiddlewaretoken': '${csrf_token}',
+                    seq: seq,
+                },
+                success: function (data) {
+                    console.log(data);
+                    if (data.return == 'success') {
+
+                        swal({
+                            title : "Success",
+                            text : "삭제 완료",
+                            type : "success"
+                        }).then(function(){
+                        //var kk = "hid_"+data.seq
+                        //$("'#"+kk+"'").hide();
+                            location.reload()
+
+                        });
+                    }
+                    else if (data.return != 'success') {
+                        swal({
+                            title: "Warning",
+                            text: "등록 실패",
+                            icon: "warning",
+                            buttons: true,
+                            dangerMode: false,
+                        }).then(function(willDelete) {
+                            if (willDelete) {
+                                return
+                            } else {
+                                return
+                            }
+                        });
+                    }
+                },
+            });
+        }
+    }
 
 
 </script>
 </%block>
+
+

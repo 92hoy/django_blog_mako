@@ -9,64 +9,64 @@
 <%block name="containor">
 <div class="login_container">
 
-    <div class="login_box">
-        <div class="login-logo">
-            L O G  I N
-        </div>
-        <div class="login_item_input">
-            <div class="form-group">
-                <label for="exampleInputEmail1">ID</label>
-                <input type="TEXT" class="form-control" id="login_id"  placeholder="ID">
-            </div>
+  <div class="login_box">
+    <div class="login-logo">
+      L O G  I N
+    </div>
+    <div class="login_item_input">
+      <div class="form-group">
+        <label for="exampleInputEmail1">ID</label>
+        <input type="TEXT" class="form-control" id="login_id"  placeholder="ID">
+      </div>
 
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="login_pw" placeholder="Password">
-            </div>
-        </div>
-
-        <div class="login_item_button">
-            <button type="button" class="btn btn-primary btn-regist">Regist</button>
-            <button onclick="btn_login()" type="button" class="btn btn-success btn-login">Login</button>
-        </div>
-
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="login_pw" placeholder="Password">
+      </div>
     </div>
 
-    <div class="regist_box">
-        <div class="regist-logo">
-            R E G I S T
-        </div>
-        <div class="regist_item_input">
-            <div class="form-group">
-                <label >ID</label>
-                <input type="TEXT" class="form-control" id="reg_id" placeholder="ID">
-            </div>
-
-            <div class="form-group">
-                <label >Password</label>
-                <input type="password" class="form-control" id="reg_pw" placeholder="Password">
-            </div>
-
-            <div class="form-group">
-                <label >Password2</label>
-                <input type="password" class="form-control" id="reg_pw2" placeholder="Password2">
-            </div>
-
-            <div class="form-group">
-                <label >Name</label>
-                <input type="TEXT" class="form-control" id="reg_name" placeholder="Name">
-            </div>
-
-            <div class="form-group">
-                <label >Phone number</label>
-                <input type="TEXT" class="form-control" id="reg_ph" placeholder="Phone number">
-            </div>
-        </div>
-        <div class="regist_item_button">
-            <button type="button" id="back" class="btn btn-primary btn-back">Back</button>
-            <button onclick="btn_regist()" type="button" class="btn btn-success btn-real-regist">Regist</button>
-        </div>
+    <div class="login_item_button">
+      <button type="button" class="btn btn-primary btn-regist">Regist</button>
+      <button onclick="btn_login()" type="button" class="btn btn-success btn-login">Login</button>
     </div>
+
+  </div>
+
+  <div class="regist_box">
+    <div class="regist-logo">
+      R E G I S T
+    </div>
+    <div class="regist_item_input">
+      <div class="form-group">
+        <label >ID</label>
+        <input type="TEXT" class="form-control" id="reg_id" placeholder="ID">
+      </div>
+
+      <div class="form-group">
+        <label >Password</label>
+        <input type="password" class="form-control" id="reg_pw" placeholder="Password">
+      </div>
+
+      <div class="form-group">
+        <label >Password2</label>
+        <input type="password" class="form-control" id="reg_pw2" placeholder="Password2">
+      </div>
+
+      <div class="form-group">
+        <label >Name</label>
+        <input type="TEXT" class="form-control" id="reg_name" placeholder="Name">
+      </div>
+
+      <div class="form-group">
+        <label >Phone number</label>
+        <input type="TEXT" class="form-control" id="reg_ph" placeholder="Phone number">
+      </div>
+    </div>
+    <div class="regist_item_button">
+      <button type="button" id="back" class="btn btn-primary btn-back">Back</button>
+      <button onclick="btn_regist()" type="button" class="btn btn-success btn-real-regist">Regist</button>
+    </div>
+  </div>
 
 </div>
 </%block>
@@ -86,6 +86,9 @@
             $('.regist_box').hide()
             $('.login_box').show()
         })
+        $(".login_box").keyup(function(e){
+            if(e.keyCode == 13)  btn_login();
+        });
     });
 
     function btn_login(){

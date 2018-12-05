@@ -20,6 +20,7 @@ urlpatterns = [
     #/backend/templates/board/board.html
     url('board$', BoardViews.board, name='board'),
     url('board_add$', BoardViews.board_add, name='board_add'),
+    url('board_del$', BoardViews.board_del, name='board_del'),
 
     # Calender
     url('calender$', CalendertViews.calender, name='calender'),

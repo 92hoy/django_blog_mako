@@ -162,6 +162,7 @@
     <div class="login-container">
       % if 'user_id' in request.session:
       <div class="login-container-item">${request.session['user_id']}</div>
+      <div class="login-container-item"><a href="/logout" class="a-menu">logout</a></div>
       % else:
       <div class="login-container-item"><a href="/login" class="a-menu">Login</a></div>
       % endif

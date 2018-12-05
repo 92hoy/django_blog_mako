@@ -20,15 +20,28 @@ def board(request):
     logging.debug('게시판 페이지 접속')
 
     board_data = Board.objects.all()
+
     for data in board_data:
         id = data.user_id
         title = data.title
         content = data.content
         print(id,'/',title,'/',content)
-    context =[]
 
+
+    board_list=list()
+    for b_data in board_data:
+        data_dict =dict()
+        data_dict['board_seq'] = b_data.board_seq
+        data_dict['user_id'] = b_data.user_id
+        data_dict['title'] = b_data.title
+        data_dict['content'] = b_data.content
+        data_dict['create_date'] = b_data.create_date
+        board_list.append(data_dict)
+
+    print(board_list)
+    context = {'board_list': board_list}
     print("data all = ",board_data)
-    return render(request, 'board/board.html')
+    return render(request, 'board/board.html',context)
 
 def board_add(request):
 
@@ -52,3 +65,10 @@ def board_add(request):
 
 
     return JsonResponse({'return':'success'})
+
+def board_del(request):
+
+    seq = request.POST.get('seq')
+    fb = Board.objects.get(board_seq=seq)
+    fb.delete()
+    return JsonResponse({"return":"success","seq":seq})

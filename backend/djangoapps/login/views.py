@@ -114,7 +114,6 @@ def regist(request):
 def logout(request):
 
     try:
-
         print('-------------------------------> exit')
         del request.session['user_id']
         del request.session['user_name']
@@ -127,4 +126,5 @@ def logout(request):
         pass
 
 
-    return JsonResponse({'return':'success'})
+    #return JsonResponse({'return':'success'})
+    return render(request,"main/index.html")
