@@ -64,6 +64,7 @@ def login(request):
             request.session['user_id'] = rows[0].user_id
             request.session['user_name'] = rows[0].name
             request.session['user_role'] = rows[0].user_role
+            request.session['login_status'] = 'ok'
 
             print("request.session['user_id'] -> ", request.session['user_id'])
 

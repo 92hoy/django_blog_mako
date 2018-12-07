@@ -42,6 +42,7 @@
       <div class="board-user-id">${board['user_id']}</div>
       <div class="board-title">${board['title']}</div>
       <div class="board-content"> ${board['content']}</div>
+
       %if request.session['user_id'] == board['user_id'] or request.session['user_role']=='S':
       <div id="btn_del" class="btn btn-danger" onclick="del_btn(${board['board_seq']})">삭제</div>
       %endif

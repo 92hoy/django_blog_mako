@@ -17,6 +17,11 @@ from backend.models import Board
 
 def board(request):
 
+    try:
+        request.session['user_id']
+    except KeyError:
+        return render(request, 'login/login.html')
+
     logging.debug('게시판 페이지 접속')
 
     board_data = Board.objects.all()
